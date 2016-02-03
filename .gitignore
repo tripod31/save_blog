@@ -1,0 +1,5 @@
+.pydev*
+.project
+*.bat
+/out/
+.settings
