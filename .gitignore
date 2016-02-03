@@ -1,5 +1,6 @@
 .pydev*
 .project
+.settings
+.*.html
 *.bat
 /out/
-.settings
