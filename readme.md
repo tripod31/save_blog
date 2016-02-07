@@ -2,11 +2,11 @@ save_blog
 =====
 blogspotのブログの記事をCSV/テキストで保存します
 
-development environment
+開発環境
 -----
 python3.5  
 
-required libraries
+必要ライブラリ
 -----
 beautifulsoup4  
 
