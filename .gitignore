@@ -4,3 +4,6 @@
 .*.html
 *.bat
 /out/
+/save_blog.spec
+/build.xml
+/build/

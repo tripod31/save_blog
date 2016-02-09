@@ -2,6 +2,11 @@ save_blog
 =====
 blogspotのブログの記事をCSV/テキストで保存します
 
+Windows用実行ファイル
+-----
+save_blog.exe  
+python、必要ライブラリが中に含まれています。  
+
 開発環境
 -----
 python3.5  
