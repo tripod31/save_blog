@@ -5,7 +5,8 @@
 """
 import argparse
 import sqlite3
-    
+import os,sys
+
 if __name__ == '__main__':
     #引数
     parser = argparse.ArgumentParser()
@@ -16,6 +17,14 @@ if __name__ == '__main__':
     args=parser.parse_args()
 
     #テキスト出力
+    if not os.path.exists(args.in_file):
+        print(args.in_file+"がありません")
+        sys.exit()
+    
+    if not os.path.exists(args.db_file):
+        print(args.db_file+"がありません")
+        sys.exit()
+    
     with open(args.in_file,mode="r",encoding='shift_jis') as f:
         txt = f.read()
     txt = "<?xml version=\"1.0\" ?><node><rich_text>%s</rich_text></node>" % txt
