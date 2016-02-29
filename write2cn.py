@@ -25,7 +25,7 @@ if __name__ == '__main__':
         print(args.db_file+"がありません")
         sys.exit()
     
-    with open(args.in_file,mode="r",encoding='shift_jis') as f:
+    with open(args.in_file,mode="r") as f:
         txt = f.read()
     txt = "<?xml version=\"1.0\" ?><node><rich_text>%s</rich_text></node>" % txt
     txt = txt.replace('\'','\'\'')
