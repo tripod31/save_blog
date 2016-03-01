@@ -34,12 +34,16 @@ if __name__ == '__main__':
     sql = "UPDATE node SET txt='%s' WHERE name='%s'" % (txt,args.node_name)
     csr.execute(sql)
     n = csr.rowcount
-    if n != 1:
+    if n == 1:
+        conn.commit()
+        print("[%s]のノードを更新しました" % args.node_name)        
+    elif n==0:
         conn.rollback()
-        print("更新失敗")
+        print("[%s]のノードがありません" % args.node_name)
     else:
         conn.commit()
-        print("%d 件更新しました" % n)
+        print("[%s]のノードが複数あるため更新しません" % args.node_name)
+    
     csr.close()
     conn.close()
 
