@@ -40,7 +40,7 @@ def get_text(node,buf):
         for e in node.contents:
             get_text(e,buf)
     if isinstance(node,element.NavigableString):
-        t = re.sub(r'[\n\xa0]','',node.string)
+        t = re.sub(r'[\n\xa0 ]','',node.string)
         buf.write(t)
 
 #子要素がないタグ（BR以外）を削除
