@@ -137,7 +137,7 @@ if __name__ == '__main__':
     
     #テキスト出力
     with open(os.path.join(args.out_dir,args.out_file_txt),mode="w") as f:
-        line = '%s:%s\n\n' % (datetime.now().strftime("%Y/%m/%d %H:%M:%S"),args.url)
+        line = '%s(%s)\n\n' % (args.url,datetime.now().strftime("%Y/%m/%d %H:%M:%S"))
         f.write(line)
         count=1
         for row in rows:
