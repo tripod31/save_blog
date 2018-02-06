@@ -27,6 +27,10 @@ if __name__ == '__main__':
     
     with open(args.in_file,mode="r") as f:
         txt = f.read()
+    if len(txt) ==0:
+        print(args.in_file+":ファイルが空です")
+        sys.exit()
+    
     txt = "<?xml version=\"1.0\" ?><node><rich_text>%s</rich_text></node>" % txt
     txt = txt.replace('\'','\'\'')
     conn=sqlite3.connect(args.db_file)
@@ -46,4 +50,4 @@ if __name__ == '__main__':
     
     csr.close()
     conn.close()
-
+    
