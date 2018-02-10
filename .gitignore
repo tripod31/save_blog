@@ -4,6 +4,7 @@
 .*.html
 .vscode/
 *.bat
+__pycache__/
 /out/
 /save_blog.spec
 /build.xml

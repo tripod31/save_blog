@@ -45,7 +45,7 @@ if __name__ == '__main__':
         conn.rollback()
         print("[%s]のノードがありません" % args.node_name)
     else:
-        conn.commit()
+        conn.rollback()
         print("[%s]のノードが複数あるため更新しません" % args.node_name)
     
     csr.close()
