@@ -1,6 +1,8 @@
 save_blog
 =====
-blogspotのブログの記事をCSV/テキストで保存します
+blogspotのブログの記事をCSV/テキストで保存します。  
+http://cleanstand.blogspot.jp/
+を保存するために作成しました。他のブログで使えるかは未確認。
 
 Windows用実行ファイル
 -----
