@@ -44,10 +44,9 @@ def get_text(node,buf):
         t = re.sub(r'[\n\xa0 ]','',node.string)
         if len(t)>0:
             buf.write(t)
-            if node.parent.name == "div":
+            if node.parent.name == "div" and node.next_sibling is None:
                 #put CR after </DIV>
-                if node.next_sibling is None:
-                    buf.write("\n")
+                buf.write("\n")
 
 #子要素がないタグ（BR以外）を削除
 def remove_empty_node(node):
