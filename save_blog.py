@@ -42,6 +42,9 @@ def get_text(node,buf):
     if isinstance(node,element.NavigableString):
         t = re.sub(r'[\n\xa0 ]','',node.string)
         buf.write(t)
+        if node.parent.name == "div":
+            #in case of DIV,put CR after string
+            buf.write("\n")
 
 #子要素がないタグ（BR以外）を削除
 def remove_empty_node(node):
