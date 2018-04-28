@@ -37,14 +37,17 @@ def get_text(node,buf):
     if isinstance(node,element.Tag):
         if node.name == "br":
             buf.write("\n")
-        for e in node.contents:
-            get_text(e,buf)
-    if isinstance(node,element.NavigableString):
+        else:
+            for e in node.contents:
+                get_text(e,buf)
+    elif isinstance(node,element.NavigableString):
         t = re.sub(r'[\n\xa0 ]','',node.string)
-        buf.write(t)
-        if node.parent.name == "div":
-            #in case of DIV,put CR after string
-            buf.write("\n")
+        if len(t)>0:
+            buf.write(t)
+            if node.parent.name == "div":
+                #put CR after </DIV>
+                if node.next_sibling is None:
+                    buf.write("\n")
 
 #子要素がないタグ（BR以外）を削除
 def remove_empty_node(node):
