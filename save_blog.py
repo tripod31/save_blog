@@ -35,17 +35,22 @@ FILEDNAMES=("title","date","label","html","text")
 #buf    StringIO:テキストを戻すためのバッファ
 def get_text(node,buf):
     if isinstance(node,element.Tag):
+        #タグ
         if node.name == "br":
             buf.write("\n")
         else:
             for e in node.contents:
                 get_text(e,buf)
     elif isinstance(node,element.NavigableString):
+        #テキストノード
         t = re.sub(r'[\n\xa0 ]','',node.string)
         if len(t)>0:
             buf.write(t)
             if node.parent.name == "div" and node.next_sibling is None:
                 #put CR after </DIV>
+                buf.write("\n")
+            if node.parent.name == "li":
+                #put CR for <LI>
                 buf.write("\n")
 
 #子要素がないタグ（BR以外）を削除
